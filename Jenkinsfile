@@ -19,7 +19,8 @@ pipeline{
             }
              post {
                    always {
-                   }   jiraSendBuildInfo branch: '', site: 'testingdevopssamba.atlassian.net'
+                       jiraSendBuildInfo branch: '', site: 'testingdevopssamba.atlassian.net'
+                   }   
              }
         }
         stage('Docker Build'){
