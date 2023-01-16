@@ -1,6 +1,6 @@
 ---
 - name: Install Docker and Python
-  hosts: localhost
+  hosts: dev
   become: true
   tasks:
     - name: Install Docker
