@@ -15,14 +15,3 @@
       yum:
         name: python
         state: present
-    - name: Pull the samba1295/sampleapp:{{DOCKER_TAG}}
-      docker_image:
-        name: samba1295/sampleapp:{{DOCKER_TAG}}
-        tags: latest
-    - name: Run the container
-      docker_container:
-        name: sampleapp
-        image: samba1295/sampleapp:{{DOCKER_TAG}}
-        state: started
-        ports:
-          - 8553:8080
