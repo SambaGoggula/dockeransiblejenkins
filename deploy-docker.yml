@@ -1,23 +1,17 @@
 ---
-- hosts: dev
+- name: Install Docker and Python
+  hosts: dev
   become: true
   tasks:
-    - name: update yum packages
-      yum:
-        name: "*"
-        state: latest
-    - name: install docker
+    - name: Install Docker
       yum:
         name: docker
         state: present
-    - name: start the docker service
+    - name: Start Docker Service
       service:
         name: docker
         state: started
-        enabled: true
-    - docker_container:
-        image: samba1295/sampleapp:{{DOCKER_TAG}}
-        name: sampleapp
-        published_ports:
-          - 0.0.0.0:8553:8080
-        state: started
+    - name: Install python
+      yum:
+        name: python
+        state: present
